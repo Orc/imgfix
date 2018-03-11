@@ -22,12 +22,14 @@ imgfix(FILE *input, FILE *output)
 
 		    while ( (c = fgetc(input)) != EOF && c != '>' ) {
 			last = c;
+			fputc(c, output);
 		    }
 		    if ( c == '>' ) {
 			if ( last != '/' )
 			    fputc('/', output);
 			fputc(c, output);
 		    }
+		    bp = 0;
 		}
 	    }
 	    else {
