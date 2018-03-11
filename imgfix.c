@@ -14,10 +14,10 @@ imgfix(FILE *input, FILE *output)
 
     while ( (c = fgetc(input)) != EOF ) {
 	if ( bp > 0 ) {
-	    if ( tag[bp++] == c ) {
-		if ( bp == 4 ) {
+	    if ( tag[bp] == c ) {
+		if ( ++bp == 4 ) {
 		    /* found an image tag; slew forward until we find a '>' */
-		    fputs("<img",output);
+		    fputs("<img", output);
 		    last = 0;
 
 		    while ( (c = fgetc(input)) != EOF && c != '>' ) {
@@ -35,10 +35,11 @@ imgfix(FILE *input, FILE *output)
 	    else {
 		fwrite(tag, bp, 1, output);
 		fputc(c, output);
+		bp = 0;
 	    }
 	}
 	else if ( c == '<' )
-	    bp++;
+	    bp = 1;
 	else
 	    fputc(c, output);
     }
