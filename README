@@ -1,4 +1,13 @@
-# imgfix
+IMGFIX:
+
 A throwaway utility to make flickr embeds xhtml compatible by
 self-closing the img tag and stripping the data-flickr-embed
 attribute out of the a tag
+
+
+Usage:
+
+    imgfix file [...] -- rewrites the flickr embeds in each file
+    imgfix < file     -- strips the flickr gunk out of stdin, writes to stdout
+
+    
