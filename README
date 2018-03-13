@@ -1,3 +1,4 @@
 # imgfix
-A throwaway utility to make flickr embeds xhtml compatible by self-closing the img tag and stripping the data-flickr-embed
+A throwaway utility to make flickr embeds xhtml compatible by
+self-closing the img tag and stripping the data-flickr-embed
 attribute out of the a tag
